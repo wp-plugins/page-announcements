@@ -579,6 +579,7 @@ if(!class_exists('GD_PageAnnouncements')) {
 			<p>Simply use the shortcode <b>[page_announcements]</b> in any of your pages.  You can choose to either randomly display 1 announcement out of a possible 3, or display all 3 announcements.</p>
 			<p>All announcements are wrapped inside &lt;div&gt; tags, giving you the flexibility to use advanced CSS and JavaScript frameworks such as <a href="http://jquery.com/">jQuery</a> and <a href="http://mootools.net/">MooTools</a> to style your announcements!</p>
 			<p>Each &lt;div&gt; tag is assigned a CSS class value of <b>"PageAnnouncement"</b> and given individual IDs (i.e. <b>"PageAnnouncement1"</b>, <b>"PageAnnouncement2"</b> and <b>"PageAnnouncement3"</b>).</p>
+			<p>The separate DIVs are contained in a parent DIV called <b>"PageAnnouncementContainer"</b>.</p>
 
 			<h3>Need some help?</h3>
 			<p>Get support for this plugin by visiting the <a href="http://plugins.gattdesign.co.uk">Gatt Design Plugins forums</a>.</p>
@@ -646,9 +647,11 @@ if(!class_exists('GD_PageAnnouncements')) {
 						}
 
 						// generate output
-						$short_code_output_display = "\n" . '<div class="PageAnnouncement" id="PageAnnouncement' . $short_code_announcement_id . '">' . "\n";
-						$short_code_output_display .= '	<p>' . $short_code_announcement_msg . '</p>' . "\n";
-						$short_code_output_display .= '	<p>' . $short_code_full_link . '</p>' . "\n";
+						$short_code_output_display = '<div id="PageAnnouncementContainer">';
+						$short_code_output_display .= "\n" . '	<div class="PageAnnouncement" id="PageAnnouncement' . $short_code_announcement_id . '">' . "\n";
+						$short_code_output_display .= '		<p>' . $short_code_announcement_msg . '</p>' . "\n";
+						$short_code_output_display .= '		<p>' . $short_code_full_link . '</p>' . "\n";
+						$short_code_output_display .= '	</div>' . "\n";
 						$short_code_output_display .= '</div>' . "\n";
 
 					}
@@ -690,10 +693,10 @@ if(!class_exists('GD_PageAnnouncements')) {
 							$short_code_enabled_msg[1] = get_option('gd_ann_1_msg');
 							
 							// generate output for announcement 1
-							$short_code_output_announcement[1] = "\n" . '<div class="PageAnnouncement" id="PageAnnouncement1">' . "\n";
-							$short_code_output_announcement[1] .= '	<p>' . $short_code_enabled_msg[1] . '</p>' . "\n";
-							$short_code_output_announcement[1] .= '	<p>' . $short_code_full_link[1] . '</p>' . "\n";
-							$short_code_output_announcement[1] .= '</div>' . "\n";
+							$short_code_output_announcement[1] = "\n" . '	<div class="PageAnnouncement" id="PageAnnouncement1">' . "\n";
+							$short_code_output_announcement[1] .= '		<p>' . $short_code_enabled_msg[1] . '</p>' . "\n";
+							$short_code_output_announcement[1] .= '		<p>' . $short_code_full_link[1] . '</p>' . "\n";
+							$short_code_output_announcement[1] .= '	</div>' . "\n";
 						}
 
 						// announcement 2
@@ -721,10 +724,10 @@ if(!class_exists('GD_PageAnnouncements')) {
 							$short_code_enabled_msg[2] = get_option('gd_ann_2_msg');
 							
 							// generate output for announcement 2
-							$short_code_output_announcement[2] = "\n" . '<div class="PageAnnouncement" id="PageAnnouncement2">' . "\n";
-							$short_code_output_announcement[2] .= '	<p>' . $short_code_enabled_msg[2] . '</p>' . "\n";
-							$short_code_output_announcement[2] .= '	<p>' . $short_code_full_link[2] . '</p>' . "\n";
-							$short_code_output_announcement[2] .= '</div>' . "\n";
+							$short_code_output_announcement[2] = "\n" . '	<div class="PageAnnouncement" id="PageAnnouncement2">' . "\n";
+							$short_code_output_announcement[2] .= '		<p>' . $short_code_enabled_msg[2] . '</p>' . "\n";
+							$short_code_output_announcement[2] .= '		<p>' . $short_code_full_link[2] . '</p>' . "\n";
+							$short_code_output_announcement[2] .= '	</div>' . "\n";
 						}
 						
 						// announcement 3
@@ -752,14 +755,14 @@ if(!class_exists('GD_PageAnnouncements')) {
 							$short_code_enabled_msg[3] = get_option('gd_ann_3_msg');
 							
 							// generate output for announcement 3
-							$short_code_output_announcement[3] = "\n" . '<div class="PageAnnouncement" id="PageAnnouncement3">' . "\n";
-							$short_code_output_announcement[3] .= '	<p>' . $short_code_enabled_msg[3] . '</p>' . "\n";
-							$short_code_output_announcement[3] .= '	<p>' . $short_code_full_link[3] . '</p>' . "\n";
-							$short_code_output_announcement[3] .= '</div>' . "\n";
+							$short_code_output_announcement[3] = "\n" . '	<div class="PageAnnouncement" id="PageAnnouncement3">' . "\n";
+							$short_code_output_announcement[3] .= '		<p>' . $short_code_enabled_msg[3] . '</p>' . "\n";
+							$short_code_output_announcement[3] .= '		<p>' . $short_code_full_link[3] . '</p>' . "\n";
+							$short_code_output_announcement[3] .= '	</div>' . "\n";
 						}
 
 						// output enabled announcements
-						$short_code_output_display = NULL;
+						$short_code_output_display = '<div id="PageAnnouncementContainer">';
 						
 						foreach($short_code_enabled AS $short_code_enabled_key => $short_code_enabled_value) {
 							if($short_code_enabled_value === FALSE) {
@@ -770,6 +773,8 @@ if(!class_exists('GD_PageAnnouncements')) {
 						foreach($short_code_enabled AS $short_code_enabled_key => $short_code_enabled_value) {
 							$short_code_output_display .= $short_code_output_announcement[$short_code_enabled_key];
 						}
+
+						$short_code_output_display .= '</div>';
 					}
 
 					break;

@@ -16,7 +16,8 @@ All you have to do is install and activate the plugin, and place the shortcode `
 within your blog.
 
 Each announcement is placed in a DIV container with a CSS class name of `PageAnnouncement` and has individual IDs 
-(i.e. `PageAnnouncement1`, `PageAnnouncement2` and `PageAnnouncement3`).
+(i.e. `PageAnnouncement1`, `PageAnnouncement2` and `PageAnnouncement3`). The separate DIVs are contained in a parent 
+DIV (`PageAnnouncementContainer`).
 
 You can either edit your theme's CSS file or you can place CSS code in your theme's header file. The flexibility of 
 this means that you can incorporate any type of effects using CSS and JavaScript frameworks such as jQuery and 
