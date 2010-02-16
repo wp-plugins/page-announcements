@@ -646,7 +646,7 @@ if(!class_exists('GD_PageAnnouncements')) {
 						}
 
 						// generate output
-						$short_code_output_display = "\n" . '<div class="PageAnnouncement id="PageAnnouncement' . $short_code_announcement_id . '">' . "\n";
+						$short_code_output_display = "\n" . '<div class="PageAnnouncement" id="PageAnnouncement' . $short_code_announcement_id . '">' . "\n";
 						$short_code_output_display .= '	<p>' . $short_code_announcement_msg . '</p>' . "\n";
 						$short_code_output_display .= '	<p>' . $short_code_full_link . '</p>' . "\n";
 						$short_code_output_display .= '</div>' . "\n";
