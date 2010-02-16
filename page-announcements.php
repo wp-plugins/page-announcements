@@ -762,7 +762,7 @@ if(!class_exists('GD_PageAnnouncements')) {
 						}
 
 						// output enabled announcements
-						$short_code_output_display = '<div id="PageAnnouncementContainer">';
+						$short_code_output_display = "\n" . '<div id="PageAnnouncementContainer">';
 						
 						foreach($short_code_enabled AS $short_code_enabled_key => $short_code_enabled_value) {
 							if($short_code_enabled_value === FALSE) {
