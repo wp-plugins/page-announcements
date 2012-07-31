@@ -1,5 +1,5 @@
 ﻿=== Page Announcements ===
-Contributors: gattdesign, tcrdev
+Contributors: tcrdev
 Donate link: http://dev.computer-rebooter.com
 Tags: page announcements, news tickers, announcements, announcement, announcement system, page message, page messages, page news, news slides, news snippets, announcement messages
 Requires at least: 3.4
