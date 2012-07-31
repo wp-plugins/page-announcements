@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Page Announcements
-Plugin URI: http://plugins.gattdesign.co.uk
-Version: 1.0
-Author: Gatt Design
-Author URI: http://plugins.gattdesign.co.uk
+Plugin URI: http://dev.computer-rebooter.com
+Version: 1.1
+Author: The Computer Rebooter Ltd.
+Author URI: http://dev.computer-rebooter.com
 Description: This plugin enables you to display announcements on your blog posts and pages. Requires PHP 5.0 or later.
 
-Copyright 2009 Gatt Design  (email : plugins@gattdesign.co.uk)
+Copyright 2012 The Computer Rebooter Ltd.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ if(!class_exists('GD_PageAnnouncements')) {
 		function menu_hook() {
 			return add_options_page('Page Announcements Settings', 'Page Announcements', 8, __FILE__, array('GD_PageAnnouncements', 'options_page'));
 		}
-
+		
 		// admin options page
 		function options_page() {
 			// form submitted
@@ -157,6 +157,16 @@ if(!class_exists('GD_PageAnnouncements')) {
 		
 		<div class="wrap">
 			<h2>Page Announcements</h2>
+
+			<h3>Usage</h3>
+			<p>Simply use the shortcode <b>[page_announcements]</b> in any of your pages.  You can choose to either randomly display 1 announcement out of a possible 3, or display all 3 announcements.</p>
+			<p>All announcements are wrapped inside &lt;div&gt; tags, giving you the flexibility to use advanced CSS to style your announcements!</p>
+			<p>Each &lt;div&gt; tag is assigned a CSS class value of <b>"PageAnnouncement"</b> and given individual IDs (<b>"PageAnnouncement1"</b>, <b>"PageAnnouncement2"</b> and <b>"PageAnnouncement3"</b>).</p>
+			<p>The separate DIVs are contained in a parent DIV called <b>"PageAnnouncementContainer"</b>.</p>
+
+			<h3>Need some help?</h3>
+			<p>Get support for this plugin by visiting the <a href="http://wordpress.org/extend/plugins/page-announcements/">plugin page on the WordPress forums</a>.</p>
+
 			<h3>Settings</h3>
 
 			<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -255,23 +265,6 @@ if(!class_exists('GD_PageAnnouncements')) {
 				<input type="hidden" name="page_options" value="gd_ann_1_msg,gd_ann_1_link_text,gd_ann_1_link_url,gd_ann_1_enabled,gd_ann_2_msg,gd_ann_2_link_text,gd_ann_2_link_url,gd_ann_2_enabled,gd_ann_3_msg,gd_ann_3_link_text,gd_ann_3_link_url,gd_ann_3_enabled,gd_ann_selection" />
 				<p class="submit"><input type="submit" class="button-primary" name="announcement_admin" value="<?php _e('Save Changes') ?>" /></p>
 			</form>
-
-			<h3>Usage</h3>
-			<p>Simply use the shortcode <b>[page_announcements]</b> in any of your pages.  You can choose to either randomly display 1 announcement out of a possible 3, or display all 3 announcements.</p>
-			<p>All announcements are wrapped inside &lt;div&gt; tags, giving you the flexibility to use advanced CSS and JavaScript frameworks such as <a href="http://jquery.com/">jQuery</a> and <a href="http://mootools.net/">MooTools</a> to style your announcements!</p>
-			<p>Each &lt;div&gt; tag is assigned a CSS class value of <b>"PageAnnouncement"</b> and given individual IDs (i.e. <b>"PageAnnouncement1"</b>, <b>"PageAnnouncement2"</b> and <b>"PageAnnouncement3"</b>).</p>
-
-			<h3>Need some help?</h3>
-			<p>Get support for this plugin by visiting the <a href="http://plugins.gattdesign.co.uk">Gatt Design Plugins forums</a>.</p>
-
-			<h3>Did you find this plugin useful?</h3>
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick" />
-				<input type="hidden" name="hosted_button_id" value="5159812" />
-				<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online." />
-				<img alt="" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-			</form>	
-			<p>Feel free to <a href="http://plugins.gattdesign.co.uk">drop us a line</a> to say thank you or even make a small donation towards the continued development of this plugin! :-)</p>
 		</div>
 <?php
 
@@ -476,6 +469,16 @@ if(!class_exists('GD_PageAnnouncements')) {
 		?>
 		<div class="wrap">
 			<h2>Page Announcements</h2>
+
+			<h3>Usage</h3>
+			<p>Simply use the shortcode <b>[page_announcements]</b> in any of your pages.  You can choose to either randomly display 1 announcement out of a possible 3, or display all 3 announcements.</p>
+			<p>All announcements are wrapped inside &lt;div&gt; tags, giving you the flexibility to use advanced CSS to style your announcements!</p>
+			<p>Each &lt;div&gt; tag is assigned a CSS class value of <b>"PageAnnouncement"</b> and given individual IDs (<b>"PageAnnouncement1"</b>, <b>"PageAnnouncement2"</b> and <b>"PageAnnouncement3"</b>).</p>
+			<p>The separate DIVs are contained in a parent DIV called <b>"PageAnnouncementContainer"</b>.</p>
+
+			<h3>Need some help?</h3>
+			<p>Get support for this plugin by visiting the <a href="http://wordpress.org/extend/plugins/page-announcements/">plugin page on the WordPress forums</a>.</p>
+
 			<h3>Settings</h3>
 
 			<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -574,29 +577,11 @@ if(!class_exists('GD_PageAnnouncements')) {
 				<input type="hidden" name="page_options" value="gd_ann_1_msg,gd_ann_1_link_text,gd_ann_1_link_url,gd_ann_1_enabled,gd_ann_2_msg,gd_ann_2_link_text,gd_ann_2_link_url,gd_ann_2_enabled,gd_ann_3_msg,gd_ann_3_link_text,gd_ann_3_link_url,gd_ann_3_enabled,gd_ann_selection" />
 				<p class="submit"><input type="submit" class="button-primary" name="announcement_admin" value="<?php _e('Save Changes') ?>" /></p>
 			</form>
-
-			<h3>Usage</h3>
-			<p>Simply use the shortcode <b>[page_announcements]</b> in any of your pages.  You can choose to either randomly display 1 announcement out of a possible 3, or display all 3 announcements.</p>
-			<p>All announcements are wrapped inside &lt;div&gt; tags, giving you the flexibility to use advanced CSS and JavaScript frameworks such as <a href="http://jquery.com/">jQuery</a> and <a href="http://mootools.net/">MooTools</a> to style your announcements!</p>
-			<p>Each &lt;div&gt; tag is assigned a CSS class value of <b>"PageAnnouncement"</b> and given individual IDs (i.e. <b>"PageAnnouncement1"</b>, <b>"PageAnnouncement2"</b> and <b>"PageAnnouncement3"</b>).</p>
-			<p>The separate DIVs are contained in a parent DIV called <b>"PageAnnouncementContainer"</b>.</p>
-
-			<h3>Need some help?</h3>
-			<p>Get support for this plugin by visiting the <a href="http://plugins.gattdesign.co.uk">Gatt Design Plugins forums</a>.</p>
-
-			<h3>Did you find this plugin useful?</h3>
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick" />
-				<input type="hidden" name="hosted_button_id" value="5159812" />
-				<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online." />
-				<img alt="" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-			</form>	
-			<p>Feel free to <a href="http://plugins.gattdesign.co.uk">drop us a line</a> to say thank you or even make a small donation towards the continued development of this plugin! :-)</p>
 		</div>
 		<?php
 			}
 		}
-
+		
 		// shortcode functions
 		function short_code() {
 			// get output type
@@ -790,6 +775,31 @@ if(!class_exists('GD_PageAnnouncements')) {
 		function create_shortcode() {
 			return add_shortcode('page_announcements', array('GD_PageAnnouncements', 'short_code'));
 		}
+		
+		// load jQuery and Cycle plugin
+		function load_jquery(){
+			if (!is_admin()) {
+				// jQuery core
+				wp_enqueue_script('jquery');
+				
+				// Cycle plugin
+				wp_deregister_script('cycle');
+				wp_register_script('cycle', plugins_url('/jquery.cycle.all.js', __FILE__));
+				wp_enqueue_script('cycle');
+				
+				// loader.js
+				wp_deregister_script('tcr_pa_script_loader');
+				wp_register_script('tcr_pa_script_loader', plugins_url('/loader.js', __FILE__));
+				wp_enqueue_script('tcr_pa_script_loader');				
+			}
+		}
+		
+		// add "Settings" link
+		function plugin_add_settings_link($links) {
+			$settings_link = '<a href="options-general.php?page=' . plugin_basename(__FILE__) . '">Settings</a>';
+		  	array_push( $links, $settings_link );
+		  	return $links;
+		}
 
 		// function initialisations
 		function start_me_up() {		
@@ -798,6 +808,13 @@ if(!class_exists('GD_PageAnnouncements')) {
 
 			// load plugin
 			self::sidebar_menu_item();
+			
+			// add "Settings" link
+			$plugin = plugin_basename(__FILE__);
+			add_filter("plugin_action_links_$plugin", array($this, 'plugin_add_settings_link'), 10, 4);
+			
+			// enqueue jQuery
+			add_action('init', array($this, 'load_jquery'));
 		}
 
 		// plugin class constructor
